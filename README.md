@@ -46,4 +46,10 @@ Se precisar de mais informações ou tiver alguma dúvida, você pode me contata
 - **E-mail**: [danilovargas@alunos.utfpr.edu.br](mailto:danilovargas@alunos.utfpr.edu.br).
 - Clicando na foto abaixo, você será redirecionado para o meu LinkedIn.
 
-<a href="https://www.linkedin.com/in/danilo-silva-vargas-b407512aa/"><img src="WIN_20240624_18_25_58_Pro.jpg" alt="foto_eu" width="180"></a>
+<a href="https://www.linkedin.com/in/danilo-silva-vargas-b407512aa/"><img src="foto_eu.jpg" alt="foto_danilo" width="180"></a>
+
+
+## Sobre mim
+Sou estudante de Análise e Desenvolvimento de Sistemas na UTFPR de Cornélio Procópio. Meus principais hobbies são assistir anime, jogar, ir para a academia e escutar podcasts sobre TI. Atualmente, estou realizando um estágio como QA na CompassUOL, pelo qual sou muito grato, mas não estou gostando desta aréa e não pretendo continuar nela, no futuro me vejo trabalhando com desenvolvimento na área de backend ou fullstack.
+
+Tenho interesse em tecnologias como banco de dados, inteligência artificial e desenvolvimento backend. Também possuo experiência com ferramentas como Git, GitLab, GitHub, Jira e conhecimento em metodologias ágeis como Scrum e Kanban.
