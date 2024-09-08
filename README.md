@@ -5,7 +5,7 @@
     <a href="https://github.com/DVargas-PT/projeto_zoologico/graphs/contributors"><img alt="contributors-shield" src="https://img.shields.io/github/contributors/DVargas-PT/projeto_zoologico.svg?style=flat-square"/></a>
 </p>
 
-# RECINTOS DO ZOO - StartDB
+# RECINTOS DO ZOO - <a href="https://start.db.tec.br"><img src="dbserver_logo.jpeg" alt="startdb_logo" width="40"></a>
 
 ## Visão Geral
 Este repositório contém a solução do desafio de alocação de animais em recintos de um zoológico. O código foi desenvolvido utilizando **JavaScript** no **VSCode** e com suporte à ferramenta de testes **Jest** para garantir a correta distribuição dos animais conforme regras específicas de biomas e compatibilidade entre espécies.
