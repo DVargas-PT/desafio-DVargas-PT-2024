@@ -26,12 +26,35 @@ class RecintosZoo {
         return quantidade > 0;
     }
 
+    verificarCompatibilidade(animal, animaisExistentes, bioma) {
+        const animalInfo = this.animaisPermitidos[animal];
+    
+        const existeCarnivoro = animaisExistentes.some(a => this.animaisPermitidos[a.especie].carnivoro);
+        if (animalInfo.carnivoro || existeCarnivoro) {
+            return animaisExistentes.every(a => a.especie === animal);  // carnívoros só podem ficar com a mesma espécie
+        }
+    
+        // regra para animais nao carnivoros (macoco e gazela) poderem viver no mesmo habitate savana e rio com o hipopotamo
+        if (bioma === "savana e rio") {
+            return true;  // macacos, gazelas e hipopótamos podem compartilhar espaço nesse bioma
+        }
+    
+        // se o bioma for apenas savana, não permitir hipopotamos com outras especies
+        if (bioma === "savana" && animal === "HIPOPOTAMO") {
+            return animaisExistentes.length === 0;  // hipopótamo só pode ficar sozinho na savana
+        }
+    
+        // outros casos gerais
+        return true;
+    }
+    
+
     encontrarRecintos(animal, quantidade) {
         const recintosViaveis = [];
         const animalInfo = this.animaisPermitidos[animal];
         let espacoNecessario = animalInfo.tamanho * quantidade;
 
-        // ordenar recintos pela ordem numérica
+        // ordenar recintos pela ordem numerica atribuida
         this.recintos.sort((a, b) => a.numero - b.numero);
 
         this.recintos.forEach((recinto) => {
@@ -42,14 +65,18 @@ class RecintosZoo {
 
             let espacoDisponivel = recinto.tamanhoTotal - espacoOcupado;
 
-            // verifica se há outra espécie no recinto e subtrai 1 unidade de espaço se for o caso
+            // verifica se há outra espécie e aplica regra de um espaço extra se houver espécies diferentes
             const haOutraEspecie = recinto.animaisExistentes.some(a => a.especie !== animal);
             if (haOutraEspecie) {
-                espacoDisponivel -= 1; // Subtrai 1 de espaço extra apenas se as espécies forem diferentes
+                espacoDisponivel -= 1;  // subtrai 1 unidade de espaco extra apenas se houver outra espécie
             }
 
-            // verifica se o bioma é compatível e se há espaço suficiente
-            if (animalInfo.biomas.includes(recinto.bioma) && espacoDisponivel >= espacoNecessario) {
+            // verifica se o bioma é compatível, se há espaço suficiente e se é compatível com as espécies no recinto
+            if (
+                animalInfo.biomas.includes(recinto.bioma) &&
+                espacoDisponivel >= espacoNecessario &&
+                this.verificarCompatibilidade(animal, recinto.animaisExistentes, recinto.bioma)
+            ) {
                 recintosViaveis.push({
                     numero: recinto.numero,
                     espacoLivre: espacoDisponivel - espacoNecessario,
@@ -58,8 +85,7 @@ class RecintosZoo {
             }
         });
 
-        // retornar no máximo 3 recintos viáveis
-        return recintosViaveis.slice(0, 3);
+        return recintosViaveis;
     }
 
     analisaRecintos(animal, quantidade) {
@@ -76,11 +102,11 @@ class RecintosZoo {
             return { erro: "Não há recinto viável" };
         }
 
-        // garante que a função `map` retorne os recintos corretamente
         return {
             recintosViaveis: recintosViaveis.map(recinto => `Recinto ${recinto.numero} (espaço livre: ${recinto.espacoLivre} total: ${recinto.tamanhoTotal})`)
         };
     }
 }
+
 
 export { RecintosZoo as RecintosZoo };
