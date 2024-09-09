@@ -16,7 +16,7 @@ Para executar o código e os testes, siga os passos abaixo:
 1. **Clonar o Repositório**:
    - Faça o clone do repositório localmente:
      ```bash
-     git clone https://github.com/DVargas-PT/projeto_zoologico.git
+     git clone https://github.com/DVargas-PT/desafio-DVargas-PT-2024.git
      ```
 
 2. **Instalar Dependências**:
