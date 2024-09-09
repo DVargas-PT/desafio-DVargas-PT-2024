@@ -37,23 +37,23 @@ describe('Recintos do Zoologico', () => {
         expect(resultado.recintosViaveis.length).toBe(3);
     });
 
-    // Testar alocação de 2 gazelas
+    
     test('Deve encontrar recintos para 2 gazelas', () => {
 
         const resultado = new RecintosZoo().analisaRecintos('GAZELA', 2);
         expect(resultado.erro).toBeFalsy();
-        expect(resultado.recintosViaveis[0]).toBe('Recinto 1 (espaço livre: 2 total: 10)');  // Restam 5 espaços, e 2 gazelas ocupam 4
-        expect(resultado.recintosViaveis[1]).toBe('Recinto 3 (espaço livre: 1 total: 7)');  // Espaço total disponível na savana
+        expect(resultado.recintosViaveis[0]).toBe('Recinto 1 (espaço livre: 2 total: 10)');  
+        expect(resultado.recintosViaveis[1]).toBe('Recinto 3 (espaço livre: 1 total: 7)');  
         expect(resultado.recintosViaveis.length).toBe(2);
     });
 
-// Testar alocação de 1 hipopótamo
+
     test('Deve encontrar recintos para 1 hipopótamos', () => {
 
         const resultado = new RecintosZoo().analisaRecintos('HIPOPOTAMO', 1);
         expect(resultado.erro).toBeFalsy();
-        expect(resultado.recintosViaveis[0]).toBe('Recinto 3 (espaço livre: 0 total: 7)');  // Hipopótamo pode ficar no bioma savana e rio
-        expect(resultado.recintosViaveis[1]).toBe('Recinto 4 (espaço livre: 4 total: 8)');  // Hipopótamo pode ficar no rio
+        expect(resultado.recintosViaveis[0]).toBe('Recinto 3 (espaço livre: 0 total: 7)');  
+        expect(resultado.recintosViaveis[1]).toBe('Recinto 4 (espaço livre: 4 total: 8)');  
         expect(resultado.recintosViaveis.length).toBe(2);
     });
 
@@ -61,7 +61,7 @@ describe('Recintos do Zoologico', () => {
 
         const resultado = new RecintosZoo().analisaRecintos('CROCODILO', 2);
         expect(resultado.erro).toBeFalsy();
-        expect(resultado.recintosViaveis[0]).toBe('Recinto 4 (espaço livre: 2 total: 8)');  // Hipopótamo pode ficar no bioma savana e rio
+        expect(resultado.recintosViaveis[0]).toBe('Recinto 4 (espaço livre: 2 total: 8)');  
         expect(resultado.recintosViaveis.length).toBe(1);
     });
 
